@@ -1,0 +1,84 @@
+<html>
+    <head>
+<script>
+
+let playerWins = 0;
+let computerWins = 0;
+let plays = ["rock", "paper", "scissors"];
+
+function computerPlay(){
+    
+    let randomplay = Math.floor(Math.random() * 3)
+    return plays[randomplay];
+}
+
+
+function playRound(playerSelection, computerSelection) {
+
+  if (playerSelection == computerSelection){
+      alert("Tie!");
+      return ("Tie, no one wins");
+  }
+  if (playerSelection == "rock" && computerSelection =="paper"){
+      computerWins++;
+      alert("You lost!");
+      return ("You Lose! Paper beats Rock");
+
+  }
+  if (playerSelection == "paper" && computerSelection =="rock"){
+      alert("You win!");
+      playerWins++;
+      return ("You Win! Paper beats Rock");
+      
+  }
+  if (playerSelection == "paper" && computerSelection =="scissors"){
+      alert("You Lost!");
+      computerWins++;
+      return ("You Lose! Scissors beats Paper");
+      
+  }
+  if (playerSelection == "scissors" && computerSelection =="paper"){
+      alert("You win!");
+      playerWins++;
+      return ("You Win! Scissors beats Paper");
+      
+  }
+  if (playerSelection == "rock" && computerSelection =="scissors"){
+      alert("You win!");
+      playerWins++;
+      return ("You Win! Rock beats Scissors");
+      
+  }
+  if (playerSelection == "scissors" && computerSelection =="rock"){
+      alert("You lost!");
+      computerWins++;
+      return ("You Lose! Rock beats Scissors");
+  }
+}
+
+for (i = 0; i < 5; i++) {
+
+    let playerSelection = prompt("Your Play");
+    let computerSelection = computerPlay();
+    
+    playRound(playerSelection.toLowerCase(), computerSelection);
+} 
+
+console.log("Final Score: Player : " + playerWins, "Computer : " + computerWins);
+
+if (playerWins > computerWins){
+    console.log("Player Wins");
+}
+else if(playerWins == computerWins){
+    console.log("Tie");
+}
+else{
+    console.log("Computer Wins");
+}
+
+</script>
+</head>
+<body>
+    <h1>Hello</h1>
+</body>
+</html>
